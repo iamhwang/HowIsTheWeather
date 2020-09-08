@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
 import PropType from "prop-types";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -18,6 +18,7 @@ export default function Weather({ temp, condition }) {
       style={styles.container}
       colors={weatherOptions[condition].gradient}
     >
+      <StatusBar barStyle="light-content" />
       <View style={styles.container}>
         <View style={styles.conditionIcon}>
           <Text>{temp}</Text>
