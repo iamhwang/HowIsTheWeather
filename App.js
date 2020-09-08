@@ -5,6 +5,7 @@ import * as Location from "expo-location";
 
 import axios from "axios";
 import Loading from './Loading';
+import Weather from './Weather';
 
 export default class extends React.Component {
   state = {
@@ -40,6 +41,6 @@ export default class extends React.Component {
 
   render() {
     const { isLoading, temp } = this.state;
-    return <Loading />
+    return isLoading ? <Loading /> : <Weather temp={temp} />;
   }
 }
