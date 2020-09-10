@@ -1,15 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import {
+  getWeather,
+  getLocation,
+} from './services/api';
+
 const initialState = {
-  searchWord: 'Hello, World?',
-  searchResults: '',
+  isLoading: true, 
+  isLocation: '',
+  weatherData: '',
 };
 
 const reducers = {
-  changneSearchWord(state, { payload: searchWord }) {
+  setWeatherCondition(state, { payload: weather }) {
     return {
       ...state,
-      searchWord: 'dispatch works',
+      weatherData: {
+        ...state.weatherData,  
+        weather,
+      },
+    };
+  },
+  setWeatherTemp(state, { payload: tempData}) {
+    return {
+      ...state,
+      weatherData: {
+        ...state.weatherData,  
+        tempData,
+      },
     };
   },
 };
@@ -21,12 +39,25 @@ const { actions, reducer } = createSlice({
 });
 
 export const {
-  changneSearchWord,
+  setWeatherCondition,
+  setWeatherTemp,
 } = actions;
 
-export function searchData(searchWord) {
+export function initialLocationSet() {
   return async (dispatch) => {
-    const { data } = await crawlingData();
+    const { latitude, longitude } = await getLocation();
+
+    const { 
+      data: { 
+        main,
+        weather,
+      } 
+    } = await getWeather(latitude, longitude); 
+
+    console.log(main);
+    
+    dispatch(setWeatherCondition(weather[0].main));
+    dispatch(setWeatherTemp(main));
   };
 }
 
