@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "HowIsTheWeather\n-github: @iamhwnag\n- ReactNative \n- Redux Architecture\n- Component role separation( presentational component, container component)\n- API: https://openweathermap.org/\n",
+    "githubUrl": "https://github.com/iamhwang/HowIsTheWeather"
   }
 }

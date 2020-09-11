@@ -1,21 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
+import WeatherHeaderPage from './component/header/WeatherHeaderPage';
 import WeatherConditionContainer from './component/condition/WeatherConditionContainer';
 import WeatherDetailPage from './component/detail/WeatherDetailPage';
 
 import {
   initialLocationSet
 } from './slice';
-
-function WeatherHeaderPage() {
-  return(
-    <>
-      <StatusBar barStyle="light-content" /> 
-    </>
-  )
-}
 
 export default function Apps() {
   const dispatch = useDispatch();
