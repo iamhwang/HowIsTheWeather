@@ -8,7 +8,11 @@ import {
 const initialState = {
   isLoading: true, 
   isLocation: '',
-  weatherData: '',
+  weatherData: {
+    temp: '',
+    temp_min: '',
+    temp_max: '',
+  },
 };
 
 const reducers = {
@@ -21,12 +25,15 @@ const reducers = {
       },
     };
   },
-  setWeatherTemp(state, { payload: tempData}) {
+  setWeatherTemp(state, { payload: { temp, temp_min, temp_max }}) 
+  {
     return {
       ...state,
       weatherData: {
         ...state.weatherData,  
-        tempData,
+        temp,
+        temp_min,
+        temp_max,
       },
     };
   },
@@ -53,8 +60,6 @@ export function initialLocationSet() {
         weather,
       } 
     } = await getWeather(latitude, longitude); 
-
-    console.log(main);
     
     dispatch(setWeatherCondition(weather[0].main));
     dispatch(setWeatherTemp(main));

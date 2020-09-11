@@ -7,8 +7,6 @@ export async function getWeather(latitude, longitude) {
 
   const url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
   
-  console.log(url);
-  
   const data = await axios.get(url);
 
   return data;
@@ -25,6 +23,6 @@ export async function getLocation() {
     return coords;
 
   } catch (error) {
-    Alert.alert("Fail to get location","Allows location security");
+    Alert.alert("Fail to get location information","Allows phone's location security");
   } 
 };

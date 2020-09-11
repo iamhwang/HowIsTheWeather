@@ -4,7 +4,7 @@ import { Text, View, StyleSheet } from 'react-native';
 export default function WeatherCondionPage({ weatherData }) {
   const {
     weather, 
-    tempData: { temp, temp_min, temp_max } 
+    temp, temp_min, temp_max,
   } = weatherData;
 
   return (

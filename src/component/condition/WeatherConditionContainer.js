@@ -9,6 +9,8 @@ export default function WeatherConditionContainer() {
   }));
 
   return (
-    <WeatherCondionPage weatherData={weatherData} />
+    <>
+      <WeatherCondionPage weatherData={weatherData} />
+    </>
   )
 }
